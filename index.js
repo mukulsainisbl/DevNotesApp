@@ -16,6 +16,10 @@ app.use(cors({
 app.use("/user", userRouter);
 app.use("/note" , authMiddleware, noteRouter )
 
+app.get('/' , (req,res) => {
+  res.send("Server is running")
+})
+
 app.listen(process.env.PORT, async () => {
   try {
     await connection;
